@@ -43,14 +43,36 @@
                         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
             </button>
-            <button class="menu-btn">
-                Menu
-                 <i class="fa-solid fa-bars"></i>
-            </button>
+           <!-- Trigger Button (outside the sidenav) -->
+<button class="menu-btn" onclick="openNav()">
+  Menu <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- Sidenav -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+<!-- Add this just after the sidenav div -->
+<div class="sidenav-overlay" onclick="closeNav()"></div>
         </div>
 
     </nav>
+    <!-- script -->
+<script>
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.querySelector(".sidenav-overlay").classList.add("active");
+}
 
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.querySelector(".sidenav-overlay").classList.remove("active");
+}
+</script>
 </body>
 
 </html>
