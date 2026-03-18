@@ -170,14 +170,14 @@ body {
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 20px;
+    color: var(--text-dark);
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: var(--text-light);
 }
 
 .sidenav .closebtn {
@@ -195,14 +195,12 @@ body {
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 0;
-    /* behind sidenav (z-index: 1) */
 }
 
 .sidenav-overlay.active {
     display: block;
 }
 
-/* Prevent content shift when nav opens */
 
 
 @media screen and (max-height: 450px) {
@@ -212,5 +210,68 @@ body {
 
     .sidenav a {
         font-size: 18px;
+    }
+}
+/* ─── Responsive Navbar ─────────────────────────── */
+
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        padding: 12px 20px;
+        gap: 10px;
+    }
+
+    /* Hide the text part of the logo, keep the image */
+    .logo span,
+    .logo {
+        font-size: 0;          /* collapses the text node */
+    }
+
+    /* Keep the image visible and properly sized */
+    .image-logo {
+        height: 40px;
+        font-size: initial;    /* reset so alt text isn't affected */
+    }
+
+    /* Shrink the search bar */
+    .navbar-center {
+        flex: 1;
+        max-width: 180px;
+        padding: 4px 8px;
+    }
+
+    /* Hide the category dropdown on small screens */
+    .navbar-center select {
+        display: none;
+    }
+
+    .nav-search {
+        width: 100%;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
+    .menu-btn {
+        padding: 7px 14px;
+        font-size: .78rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .navbar {
+        padding: 10px 14px;
+    }
+
+    /* Also hide the search bar on very small screens to avoid overflow */
+    .navbar-center {
+        max-width: 130px;
+    }
+
+    /* Hide the wishlist icon button to save space */
+    .nav-right .icon-btn:nth-child(2) {
+        display: none;
     }
 }
