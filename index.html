@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -18,7 +20,7 @@
     <nav class="navbar">
         <div class="logo">
             <img src="./image/logo.jpg" alt="" class="image-logo">
-            Awakening Potential Foundation 
+            Awakening Potential Foundation
         </div>
         <div class="navbar-center">
             <select aria-label="Course category">
@@ -43,36 +45,118 @@
                         d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
             </button>
-           <!-- Trigger Button (outside the sidenav) -->
-<button class="menu-btn" onclick="openNav()">
-  Menu <i class="fa-solid fa-bars"></i>
-</button>
+            <!-- Trigger Button (outside the sidenav) -->
+            <button class="menu-btn" onclick="openNav()">
+                Menu <i class="fa-solid fa-bars"></i>
+            </button>
 
-<!-- Sidenav -->
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
-<!-- Add this just after the sidenav div -->
-<div class="sidenav-overlay" onclick="closeNav()"></div>
+            <!-- Sidenav -->
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </div>
+            <!-- Add this just after the sidenav div -->
+            <div class="sidenav-overlay" onclick="closeNav()"></div>
         </div>
 
     </nav>
-    <!-- script -->
-<script>
-  function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.querySelector(".sidenav-overlay").classList.add("active");
-}
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.querySelector(".sidenav-overlay").classList.remove("active");
-}
-</script>
+    <!-- Hero -->
+    <div class="hero">
+        <!-- LEFT: photo panel -->
+        <div class="hero-left">
+            <span class="pill-tag tag-1"><span class="dot"></span> Business &amp; Freelancing</span>
+            <span class="pill-tag tag-2"><span class="dot"></span> Digital Marketing</span>
+            <span class="pill-tag tag-3"><span class="dot"></span> Data &amp; AI Skills</span>
+            <span class="pill-tag tag-4"><span class="dot"></span> UI/UX Design</span>
+
+            <!-- hero image -->
+           <div class="hero-img">
+            <img src="./image/student.png" alt="">
+           </div>
+
+            <!-- Progress card -->
+            <div class="progress-card">
+                <h4>Your Learning Progress</h4>
+                <div class="bars">
+                    <div class="bar-col">
+                        <div class="bar" style="height:28px;"></div>
+                        <span class="bar-label">Mon</span>
+                    </div>
+                    <div class="bar-col">
+                        <div class="bar active" style="height:42px;"></div>
+                        <span class="bar-label">Tue</span>
+                    </div>
+                    <div class="bar-col">
+                        <div class="bar half" style="height:36px;"></div>
+                        <span class="bar-label">Wed</span>
+                    </div>
+                    <div class="bar-col">
+                        <div class="bar active" style="height:52px;"></div>
+                        <span class="bar-label">Thu</span>
+                    </div>
+                    <div class="bar-col">
+                        <div class="bar" style="height:22px;"></div>
+                        <span class="bar-label">Fri</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: text panel -->
+        <div class="hero-right">
+            <div class="review-badge">
+                <div class="stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                        class="star">★</span><span class="star">★</span>
+                </div>
+                Students Review
+            </div>
+
+            <h1 class="hero-title">
+                Master New Skills<br />
+                Track Your <em>Progress</em>
+            </h1>
+
+            <p class="hero-sub">
+                Join thousands of learners advancing their careers with personalized
+                learning paths and real-time progress tracking.
+            </p>
+
+            <div class="hero-cta">
+                <button class="btn-primary">
+                    Start Free
+                    <svg viewBox="0 0 16 16">
+                        <path d="M3 8h10M9 4l4 4-4 4" />
+                    </svg>
+                </button>
+                <button class="btn-ghost">
+                    <div class="play-circle">
+                        <svg viewBox="0 0 16 16">
+                            <polygon points="5,3 13,8 5,13" />
+                        </svg>
+                    </div>
+                    Free Course
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <!-- script -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.querySelector(".sidenav-overlay").classList.add("active");
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.querySelector(".sidenav-overlay").classList.remove("active");
+        }
+    </script>
 </body>
 
 </html>

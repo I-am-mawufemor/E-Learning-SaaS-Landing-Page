@@ -29,6 +29,7 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
     transition: margin-left 0.5s;
+   
 }
 
 .navbar {
@@ -36,7 +37,9 @@ body {
     align-items: center;
     justify-content: space-between;
     background: var(--white);
-    padding: 18px 48px;
+    /* padding: 18px 48px; */
+     height: 73px;
+  padding: 0 48px;
     position: sticky;
     top: 0;
     box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
@@ -151,16 +154,17 @@ body {
 /* side nav */
 
 .sidenav {
-    height: calc(100% - 60px);;
+    height: calc(100% - 60px);
+    ;
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 85px; 
+    top: 85px;
     right: 0;
     left: auto;
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    background-color:var(--white);
+    background-color: var(--white);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 20px;
@@ -212,6 +216,7 @@ body {
         font-size: 18px;
     }
 }
+
 /* ─── Responsive Navbar ─────────────────────────── */
 
 @media screen and (max-width: 768px) {
@@ -224,13 +229,15 @@ body {
     /* Hide the text part of the logo, keep the image */
     .logo span,
     .logo {
-        font-size: 0;          /* collapses the text node */
+        font-size: 0;
+        /* collapses the text node */
     }
 
     /* Keep the image visible and properly sized */
     .image-logo {
         height: 40px;
-        font-size: initial;    /* reset so alt text isn't affected */
+        font-size: initial;
+        /* reset so alt text isn't affected */
     }
 
     /* Shrink the search bar */
@@ -275,3 +282,138 @@ body {
         display: none;
     }
 }
+
+
+/* Hero */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 73px);
+    max-height: 680px;
+    overflow: hidden;
+}
+
+.hero-left {
+    position: relative;
+    background: linear-gradient(160deg, #e8d8c8 0%, #d4bfa8 100%);
+    overflow: hidden;
+}
+
+.pill-tag {
+    display: inline-flex;
+    align-items: center;
+    background: var(--white);
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    z-index: 3;
+    font-size: .75rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    position: absolute;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+    animation: floatIn .6s ease both;
+
+}
+
+.pill-tag .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+
+}
+
+.tag-1 {
+    top: 60px;
+    left: 32px;
+    animation-delay: .3s;
+}
+
+.tag-2 {
+    top: 60px;
+    right: 50px;
+    animation-delay: .45s;
+}
+
+.tag-3 {
+    top: 120px;
+    left: 32px;
+    animation-delay: .6s;
+}
+
+.tag-4 {
+    top: 120px;
+    right: 50px;
+    animation-delay: .75s;
+}
+
+.hero-img {
+   
+  position: absolute;
+      bottom: 40px;
+      left: 35%;
+      transform: translateX(-50%);
+      height: 92%;
+      object-fit: cover;
+      z-index: 2;
+      animation: slideUp .7s cubic-bezier(.22, .68, 0, 1.2) both;
+      animation-delay: .15s   
+}
+ /* Progress card */
+    .progress-card {
+      position: absolute;
+      bottom: 28px;
+      left: 24px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px 20px;
+      z-index: 4;
+      min-width: 210px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+      animation: floatIn .6s ease both;
+      animation-delay: .9s;
+    }
+    .progress-card h4 {
+      font-size: .72rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 56px;
+    }
+
+    .bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .bar {
+      width: 22px;
+      border-radius: 6px 6px 0 0;
+      background: #e8d8c8;
+      transition: height .4s ease;
+    }
+
+    .bar.active {
+      background: var(--orange);
+    }
+
+    .bar.half {
+      background: var(--orange);
+      opacity: .55;
+    }
+
+    .bar-label {
+      font-size: .62rem;
+      color: var(--text-light);
+    }
