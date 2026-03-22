@@ -122,7 +122,7 @@ body {
     transform: scale(1.08);
 }
 
-.icon-btn svg {
+.icon-btn i {
     background: transparent;
     fill: none;
     stroke: var(--text-mid);
@@ -560,63 +560,63 @@ body {
     margin-left: 2px;
 }
 
-  /* ─── FOOTER STRIP ─── */
-    .footer-strip {
-      background: var(--white);
-      border-top: 1px solid rgba(0, 0, 0, .06);
-      padding: 20px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+/* ─── FOOTER STRIP ─── */
+.footer-strip {
+    background: var(--white);
+    border-top: 1px solid rgba(0, 0, 0, .06);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    .strip-label {
-      font-size: .78rem;
-      color: var(--text-light);
-      font-weight: 500;
-      letter-spacing: .03em;
-      text-transform: uppercase;
-    }
+.strip-label {
+    font-size: .78rem;
+    color: var(--text-light);
+    font-weight: 500;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+}
 
-    .strip-nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+.strip-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-    .strip-page {
-      font-size: .78rem;
-      color: var(--text-mid);
-    }
+.strip-page {
+    font-size: .78rem;
+    color: var(--text-mid);
+}
 
-    .arrow-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1.5px solid #ddd;
-      background: transparent;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: border-color .2s, background .2s;
-    }
+.arrow-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid #ddd;
+    background: transparent;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
 
-    .arrow-btn:hover {
-      border-color: var(--orange);
-      background: var(--orange);
-    }
+.arrow-btn:hover {
+    border-color: var(--orange);
+    background: var(--orange);
+}
 
-    .arrow-btn:hover i {
-      stroke: white;
-    }
+.arrow-btn:hover i {
+    stroke: white;
+}
 
-    .arrow-btn i {
-      width: 14px;
-      height: 14px;
-      stroke: var(--text-mid);
-      fill: none;
-      stroke-width: 2;
-    }
+.arrow-btn i {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-mid);
+    fill: none;
+    stroke-width: 2;
+}
 
 
 /* ─── ANIMATIONS ─── */
@@ -653,5 +653,256 @@ body {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+/* ── Mobile (≤ 480px): tighten everything further ── */
+@media screen and (max-width: 480px) {
+    .hero-left {
+        height: 52vw;
+        min-height: 260px;
+        max-height: 340px;
+    }
+
+    .hero-img {
+        height: 98%;
+    }
+
+    /* Hide the two lower pill tags to avoid clutter */
+    .tag-3,
+    .tag-4 {
+        display: none;
+    }
+
+    .tag-1 {
+        font-size: .68rem;
+        padding: 4px 10px;
+    }
+
+    .tag-2 {
+        font-size: .68rem;
+        padding: 4px 10px;
+    }
+
+    /* Collapse progress card into a compact strip */
+    .progress-card {
+        padding: 10px 12px;
+        min-width: 140px;
+        border-radius: 12px;
+    }
+
+    .progress-card h4 {
+        font-size: .65rem;
+        margin-bottom: 8px;
+    }
+
+    .bars {
+        height: 40px;
+        gap: 5px;
+    }
+
+    .bar {
+        width: 16px;
+    }
+
+    .hero-right {
+        padding: 28px 20px 40px;
+        gap: 14px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 7.5vw, 2.2rem);
+    }
+
+    .hero-sub {
+        font-size: .85rem;
+    }
+
+    .btn-primary {
+        padding: 12px 22px;
+        font-size: .85rem;
+    }
+
+    .hero-cta {
+        gap: 12px;
+    }
+}
+
+/* ── Very small phones (≤ 360px) ── */
+@media screen and (max-width: 360px) {
+    .hero-left {
+        height: 56vw;
+        min-height: 220px;
+    }
+
+    .progress-card {
+        display: none;
+        /* reclaim space on tiny screens */
+    }
+
+    .hero-right {
+        padding: 24px 16px 36px;
+    }
+
+    .hero-title {
+        font-size: 1.65rem;
+    }
+}
+
+/* ─── STATISTICS  Section─── */
+.stat {
+    display: flex;
+    flex-direction: column;
+    padding: 120px 30px;
+    gap: 20px;
+}
+
+.stat-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    padding: 30px 60px;
+    align-items: start;
+}
+
+
+.stat-card-2,
+.stat-card-4 {
+    height: 220px;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-top: 110px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+
+}
+
+.stat-card-1 {
+    height: 220px;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+}
+
+.stat-card-3 {
+    height: 220px;
+    background: var(--orange-light);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+
+}
+
+.stat-card-2 .icon-btn,
+.stat-card-4 .icon-btn,
+.stat-card-1 .icon-btn {
+    background: var(--orange-light);
+    border: none;
+}
+
+.stat-card-2 .icon-btn i,
+.stat-card-4 .icon-btn i,
+.stat-card-1 .icon-btn i {
+    stroke: var(--white);
+    color: var(--white);
+}
+
+.stat-card-3 .icon-btn {
+    background: var(--white);
+    border: none;
+}
+
+.stat-card-3 .icon-btn i {
+    stroke: var(--orange-light);
+    color: var(--orange-light);
+}
+
+.stat-content {
+    margin-top: 90px;
+    font-family: Playfair Display, serif;
+
+}
+
+.stat-content h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+
+}
+
+.stat-content p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.stat-card-3 .stat-content h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--white) !important;
+}
+
+
+.stat-card-3 .stat-content p {
+    font-size: 0.9rem;
+    color: var(--white) !important;
+}
+
+/* Keyframe: starts invisible and 24px below, ends fully visible in place */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    .stat-card-1,
+    .stat-card-2,
+    .stat-card-3,
+    .stat-card-4 {
+        opacity: 0;
+        animation: fadeUp 0.5s ease forwards;
+        animation-play-state: paused;
+        
+    }
+
+
+    .stat-card-1 {
+        animation-delay: 0s;
+    }
+
+    .stat-card-2 {
+        animation-delay: 0.1s;
+    }
+
+    .stat-card-3 {
+        animation-delay: 0.2s;
+    }
+
+    .stat-card-4 {
+        animation-delay: 0.3s;
+    }
+
+    .stat-cards.in-view .stat-card-1,
+    .stat-cards.in-view .stat-card-2,
+    .stat-cards.in-view .stat-card-3,
+    .stat-cards.in-view .stat-card-4 {
+        animation-play-state: running;
     }
 }
