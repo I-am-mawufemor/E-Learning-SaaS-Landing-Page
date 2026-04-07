@@ -162,7 +162,7 @@ body {
     right: 0;
     left: auto;
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
     background-color: var(--white);
     overflow-x: hidden;
     transition: 0.5s;
@@ -348,7 +348,6 @@ body {
 }
 
 .hero-img {
-
     position: absolute;
     bottom: 40px;
     left: 35%;
@@ -363,7 +362,7 @@ body {
 /* Progress card */
 .progress-card {
     position: absolute;
-    bottom: 28px;
+    bottom: 18px;
     left: 24px;
     background: var(--white);
     border-radius: 16px;
@@ -425,10 +424,13 @@ body {
     align-items: flex-start;
     justify-content: center;
     gap: 24px;
-    padding: 60px 56px 60px 48px;
+   
     background: var(--cream);
     animation: fadeRight .7s ease both;
     animation-delay: .2s;
+}
+.hero-right-content{
+ padding: 60px 56px 60px 48px;
 }
 
 .review-badge {
@@ -564,10 +566,13 @@ body {
 .footer-strip {
     background: var(--white);
     border-top: 1px solid rgba(0, 0, 0, .06);
-    padding: 20px 48px;
+    padding: 10px 48px;
+     position: absolute;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .strip-label {
@@ -656,99 +661,182 @@ body {
     }
 }
 
-/* ── Mobile (≤ 480px): tighten everything further ── */
+/* ─── HERO RESPONSIVE ─────────────────────────────────────────── */
+
+/* Tablet: ≤ 900px — tighten padding, shrink text slightly */
+@media screen and (max-width: 900px) {
+  .hero-right-content {
+    padding: 40px 32px 40px 32px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+  }
+}
+
+/* Mobile landscape / small tablet: ≤ 768px — STACK the two panels */
+@media screen and (max-width: 768px) {
+
+  /* Core fix: kill side-by-side, go vertical */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    max-height: none;
+    min-height: unset;
+  }
+
+  /* hero-left becomes a fixed-height image banner on top */
+  .hero-left {
+    height: 55vw;
+    min-height: 260px;
+    max-height: 380px;
+  }
+
+  /* hero-right flows below naturally */
+  .hero-right {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .hero-right-content {
+    padding: 36px 28px 28px;
+  }
+
+  /* footer-strip must leave position:absolute or it overlaps hero-right */
+  .footer-strip {
+    position: static;
+    width: 100%;
+    padding: 10px 28px;
+  }
+
+  /* slightly smaller pill tags */
+  .pill-tag {
+    font-size: .72rem;
+    padding: 5px 12px;
+  }
+
+  /* review badge + title spacing */
+  .review-badge {
+    margin-bottom: 18px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+    margin-bottom: 14px;
+  }
+
+  .hero-sub {
+    font-size: .9rem;
+    margin-bottom: 28px;
+  }
+}
+
+/* Mobile portrait: ≤ 480px — further tighten everything */
 @media screen and (max-width: 480px) {
-    .hero-left {
-        height: 52vw;
-        min-height: 260px;
-        max-height: 340px;
-    }
 
-    .hero-img {
-        height: 98%;
-    }
+  .hero-left {
+    height: 58vw;
+    min-height: 240px;
+    max-height: 320px;
+  }
 
-    /* Hide the two lower pill tags to avoid clutter */
-    .tag-3,
-    .tag-4 {
-        display: none;
-    }
+  .hero-img {
+    height: 98%;
+  }
 
-    .tag-1 {
-        font-size: .68rem;
-        padding: 4px 10px;
-    }
+  /* Hide lower two tags to avoid clutter */
+  .tag-3,
+  .tag-4 {
+    display: none;
+  }
 
-    .tag-2 {
-        font-size: .68rem;
-        padding: 4px 10px;
-    }
+  .tag-1,
+  .tag-2 {
+    font-size: .66rem;
+    padding: 4px 10px;
+  }
 
-    /* Collapse progress card into a compact strip */
-    .progress-card {
-        padding: 10px 12px;
-        min-width: 140px;
-        border-radius: 12px;
-    }
+  /* Compact progress card */
+  .progress-card {
+    padding: 10px 12px;
+    min-width: 150px;
+    border-radius: 12px;
+  }
 
-    .progress-card h4 {
-        font-size: .65rem;
-        margin-bottom: 8px;
-    }
+  .progress-card h4 {
+    font-size: .63rem;
+    margin-bottom: 8px;
+  }
 
-    .bars {
-        height: 40px;
-        gap: 5px;
-    }
+  .bars {
+    height: 40px;
+    gap: 5px;
+  }
 
-    .bar {
-        width: 16px;
-    }
+  .bar {
+    width: 16px;
+  }
 
-    .hero-right {
-        padding: 28px 20px 40px;
-        gap: 14px;
-    }
+  .hero-right-content {
+    padding: 28px 20px 24px;
+  }
 
-    .hero-title {
-        font-size: clamp(1.75rem, 7.5vw, 2.2rem);
-    }
+  .hero-title {
+    font-size: clamp(1.7rem, 7vw, 2.1rem);
+    margin-bottom: 12px;
+  }
 
-    .hero-sub {
-        font-size: .85rem;
-    }
+  .hero-sub {
+    font-size: .85rem;
+    margin-bottom: 24px;
+  }
 
-    .btn-primary {
-        padding: 12px 22px;
-        font-size: .85rem;
-    }
+  .btn-primary {
+    padding: 12px 22px;
+    font-size: .85rem;
+  }
 
-    .hero-cta {
-        gap: 12px;
-    }
+  .hero-cta {
+    gap: 12px;
+  }
+
+  .footer-strip {
+    padding: 10px 20px;
+  }
 }
 
-/* ── Very small phones (≤ 360px) ── */
+/* Very small phones: ≤ 360px */
 @media screen and (max-width: 360px) {
-    .hero-left {
-        height: 56vw;
-        min-height: 220px;
-    }
 
-    .progress-card {
-        display: none;
-        /* reclaim space on tiny screens */
-    }
+  .hero-left {
+    height: 60vw;
+    min-height: 210px;
+  }
 
-    .hero-right {
-        padding: 24px 16px 36px;
-    }
+  /* Reclaim space — hide progress card entirely */
+  .progress-card {
+    display: none;
+  }
 
-    .hero-title {
-        font-size: 1.65rem;
-    }
+  /* Only show one pill tag */
+  .tag-2 {
+    display: none;
+  }
+
+  .hero-right-content {
+    padding: 22px 16px 20px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-sub {
+    font-size: .82rem;
+  }
 }
-
 /* ─── STATISTICS  Section─── */
 .stat {
     display: flex;
@@ -769,7 +857,7 @@ body {
 
 .stat-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
     padding: 30px 60px;
     align-items: start;
@@ -778,7 +866,6 @@ body {
 
 .stat-card-2,
 .stat-card-4 {
-    height: 220px;
     background: var(--white);
     border-radius: var(--radius);
     padding: 16px;
@@ -788,7 +875,6 @@ body {
 }
 
 .stat-card-1 {
-    height: 220px;
     background: var(--white);
     border-radius: var(--radius);
     padding: 16px;
@@ -836,7 +922,7 @@ body {
 
 .stat-content h2 {
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 4vw, 2rem);
 
 }
 
@@ -847,7 +933,7 @@ body {
 
 .stat-card-3 .stat-content h2 {
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 4vw, 2rem);
     color: var(--white) !important;
 }
 

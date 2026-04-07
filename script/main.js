@@ -45,7 +45,7 @@ const statsObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             statCards.classList.add('in-view'); // triggers CSS fadeUp
             runAllCounters();                   // triggers JS counter
-            statsObserver.disconnect();         // fire once only
+            statsObserver.disconnect();        
         }
     });
 }, { threshold: 0.2 });
