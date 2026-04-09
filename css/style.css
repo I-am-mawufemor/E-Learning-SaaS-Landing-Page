@@ -666,13 +666,12 @@ body {
         transform: translateX(0);
     }
 }
-
 /* ─── HERO RESPONSIVE ─────────────────────────────────────────── */
 
-/* Tablet: ≤ 900px — tighten padding, shrink text slightly */
+/* Tablet: ≤ 900px — tighten padding */
 @media screen and (max-width: 900px) {
     .hero-right-content {
-        padding: 40px 32px 40px 32px;
+        padding: 40px 32px;
     }
 
     .hero-title {
@@ -680,10 +679,9 @@ body {
     }
 }
 
-/* Mobile landscape / small tablet: ≤ 768px — STACK the two panels */
+/* Tablet portrait / large mobile: ≤ 768px — stack panels */
 @media screen and (max-width: 768px) {
 
-    /* Core fix: kill side-by-side, go vertical */
     .hero {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
@@ -691,14 +689,18 @@ body {
         min-height: unset;
     }
 
-    /* hero-left becomes a fixed-height image banner on top */
+    /* Give hero-left enough room — never let it collapse */
     .hero-left {
-        height: 55vw;
-        min-height: 260px;
-        max-height: 380px;
+        height: 65vw;
+        min-height: 320px;
+        max-height: 460px;
     }
 
-    /* hero-right flows below naturally */
+    .hero-img {
+        height: 95%;
+        bottom: 30px;
+    }
+
     .hero-right {
         flex-direction: column;
         align-items: flex-start;
@@ -707,29 +709,26 @@ body {
     }
 
     .hero-right-content {
-        padding: 36px 28px 28px;
+        padding: 40px 32px 32px;
     }
 
-    /* footer-strip must leave position:absolute or it overlaps hero-right */
     .footer-strip {
         position: static;
         width: 100%;
-        padding: 10px 28px;
+        padding: 12px 32px;
     }
 
-    /* slightly smaller pill tags */
     .pill-tag {
         font-size: .72rem;
         padding: 5px 12px;
     }
 
-    /* review badge + title spacing */
     .review-badge {
-        margin-bottom: 18px;
+        margin-bottom: 20px;
     }
 
     .hero-title {
-        font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+        font-size: clamp(2rem, 5.5vw, 2.6rem);
         margin-bottom: 14px;
     }
 
@@ -739,20 +738,22 @@ body {
     }
 }
 
-/* Mobile portrait: ≤ 480px — further tighten everything */
+/* Mobile portrait: ≤ 480px */
 @media screen and (max-width: 480px) {
 
+    /* Keep hero-left tall enough to feel like a real panel */
     .hero-left {
-        height: 58vw;
-        min-height: 240px;
-        max-height: 320px;
+        height: 72vw;
+        min-height: 300px;
+        max-height: 400px;
     }
 
     .hero-img {
-        height: 98%;
+        height: 96%;
+        bottom: 20px;
     }
 
-    /* Hide lower two tags to avoid clutter */
+    /* Hide lower two tags to reduce clutter */
     .tag-3,
     .tag-4 {
         display: none;
@@ -760,15 +761,16 @@ body {
 
     .tag-1,
     .tag-2 {
-        font-size: .66rem;
+        font-size: .68rem;
         padding: 4px 10px;
     }
 
-    /* Compact progress card */
     .progress-card {
-        padding: 10px 12px;
-        min-width: 150px;
+        padding: 10px 14px;
+        min-width: 160px;
         border-radius: 12px;
+        bottom: 14px;
+        left: 16px;
     }
 
     .progress-card h4 {
@@ -777,31 +779,31 @@ body {
     }
 
     .bars {
-        height: 40px;
-        gap: 5px;
+        height: 44px;
+        gap: 6px;
     }
 
     .bar {
-        width: 16px;
+        width: 18px;
     }
 
     .hero-right-content {
-        padding: 28px 20px 24px;
+        padding: 32px 20px 24px;
     }
 
     .hero-title {
-        font-size: clamp(1.7rem, 7vw, 2.1rem);
+        font-size: clamp(1.8rem, 7vw, 2.2rem);
         margin-bottom: 12px;
     }
 
     .hero-sub {
-        font-size: .85rem;
+        font-size: .88rem;
         margin-bottom: 24px;
     }
 
     .btn-primary {
         padding: 12px 22px;
-        font-size: .85rem;
+        font-size: .88rem;
     }
 
     .hero-cta {
@@ -817,30 +819,34 @@ body {
 @media screen and (max-width: 360px) {
 
     .hero-left {
-        height: 60vw;
-        min-height: 210px;
+        height: 75vw;
+        min-height: 270px;
+        max-height: 360px;
     }
 
-    /* Reclaim space — hide progress card entirely */
+    .hero-img {
+        height: 94%;
+    }
+
+    /* Hide progress card to reclaim space */
     .progress-card {
         display: none;
     }
 
-    /* Only show one pill tag */
     .tag-2 {
         display: none;
     }
 
     .hero-right-content {
-        padding: 22px 16px 20px;
+        padding: 24px 16px 20px;
     }
 
     .hero-title {
-        font-size: 1.6rem;
+        font-size: clamp(1.65rem, 8vw, 2rem);
     }
 
     .hero-sub {
-        font-size: .82rem;
+        font-size: .84rem;
     }
 }
 
