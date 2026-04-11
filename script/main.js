@@ -1,53 +1,83 @@
 // main.js
 
-// ─── Navigation ───
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.querySelector(".sidenav-overlay").classList.add("active");
-}
+document.addEventListener('DOMContentLoaded', function () {
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.querySelector(".sidenav-overlay").classList.remove("active");
-}
+    // ─── Navigation ───
+    const sidenav = document.getElementById("mySidenav");
+    const overlay = document.querySelector(".sidenav-overlay");
 
-// ─── Stats: Counter Animation ───
-function animateCounter(element, target, suffix, duration = 1500) {
-    const start = performance.now();
-
-    function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(eased * target);
-        element.textContent = current + suffix;
-
-        if (progress < 1) {
-            requestAnimationFrame(tick);
-        }
+    function openNav() {
+        if (sidenav) sidenav.style.width = "250px";
+        if (overlay) overlay.classList.add("active");
     }
 
-    requestAnimationFrame(tick);
-}
+    function closeNav() {
+        if (sidenav) sidenav.style.width = "0";
+        if (overlay) overlay.classList.remove("active");
+    }
 
-function runAllCounters() {
-    animateCounter(document.querySelector('.stat-card-1 h2'), 1,   'M+');
-    animateCounter(document.querySelector('.stat-card-2 h2'), 350, '+');
-    animateCounter(document.querySelector('.stat-card-3 h2'), 120, '+');
-    animateCounter(document.querySelector('.stat-card-4 h2'), 40,  '+');
-}
+    // Attach nav events via addEventListener instead of HTML onclick
+    const openBtn = document.querySelector(".nav-open-btn");
+    const closeBtn = document.querySelector(".nav-close-btn");
 
-// ─── Stats: Scroll Trigger (one observer, both effects) ───
-const statCards = document.querySelector('.stat-cards');
+    if (openBtn) openBtn.addEventListener("click", openNav);
+    if (closeBtn) closeBtn.addEventListener("click", closeNav);
 
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            statCards.classList.add('in-view'); // triggers CSS fadeUp
-            runAllCounters();                   // triggers JS counter
-            statsObserver.disconnect();        
+    // Close nav when overlay is clicked
+    if (overlay) overlay.addEventListener("click", closeNav);
+
+
+    // ─── Stats: Counter Animation ───
+    function animateCounter(element, target, suffix, duration = 1500) {
+
+        // Guard — skip if element doesn't exist
+        if (!element) return;
+
+        // Reset to 0 before animating
+        element.textContent = "0" + suffix;
+
+        const start = performance.now();
+
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            element.textContent = current + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            }
         }
-    });
-}, { threshold: 0.2 });
 
-statsObserver.observe(statCards);
+        requestAnimationFrame(tick);
+    }
+
+    function runAllCounters() {
+        animateCounter(document.querySelector('.stat-card-1 h2'), 1000,   '+');
+        animateCounter(document.querySelector('.stat-card-2 h2'), 350, '+');
+        animateCounter(document.querySelector('.stat-card-3 h2'), 120, '+');
+        animateCounter(document.querySelector('.stat-card-4 h2'), 40,  '+');
+    }
+
+
+    // ─── Stats: Scroll Trigger ───
+    const statCards = document.querySelector('.stat-cards');
+
+    // Guard — only run observer if stat-cards exists in the DOM
+    if (statCards) {
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    statCards.classList.add('in-view'); // triggers CSS fadeUp
+                    runAllCounters();                   // triggers JS counter
+                    statsObserver.disconnect();         // run once only
+                }
+            });
+        }, { threshold: 0.2 });
+
+        statsObserver.observe(statCards);
+    }
+
+});
