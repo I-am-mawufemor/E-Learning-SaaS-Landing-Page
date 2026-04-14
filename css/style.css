@@ -349,13 +349,18 @@ body {
 .hero-img {
   position: absolute;
   bottom: 40px;
-  left: 35%;
-  transform: translateX(-50%);
-  height: 92%;
-  object-fit: cover;
-  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%); 
+   height: 92%;
+  z-index: 3;
   animation: slideUp 0.7s cubic-bezier(0.22, 0.68, 0, 1.2) both;
   animation-delay: 0.15s;
+}
+.hero-img img{
+  width: auto;
+  height: 92vh;
+  object-fit: contain;
+  display: block;
 }
 
 /* Progress card */
