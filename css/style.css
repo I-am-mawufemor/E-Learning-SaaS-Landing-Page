@@ -286,7 +286,7 @@ body {
 /* Hero */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   min-height: calc(100vh - 73px);
   max-height: 680px;
   overflow: hidden;
@@ -352,7 +352,7 @@ body {
   left: 50%;
   transform: translateX(-50%); 
    height: 92%;
-  z-index: 3;
+  z-index: 2;
   animation: slideUp 0.7s cubic-bezier(0.22, 0.68, 0, 1.2) both;
   animation-delay: 0.15s;
 }
@@ -816,7 +816,7 @@ body {
   }
 }
 
-/* Very small phones: ≤ 360px */
+ /* Very small phones: ≤ 360px */
 @media screen and (max-width: 360px) {
   .hero-left {
     height: 75vw;
@@ -849,7 +849,7 @@ body {
     font-size: 0.84rem;
   }
 }
-
+ 
 
 /* STATISTICS  class */
 .stat {
@@ -1192,6 +1192,8 @@ body {
     justify-content: space-around;
   }
 }
+
+/* cat class  */
 .guide {
   display: flex;
   flex-direction: row;
