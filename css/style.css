@@ -294,7 +294,6 @@ body {
 
 .hero-left {
   position: relative;
-  /* background: linear-gradient(160deg, #e8d8c8, #d4bfa8); */
   background: linear-gradient(135deg, #f4e7df, #e9d6c9);
   overflow: hidden;
 }
@@ -702,6 +701,9 @@ body {
     height: 95%;
     bottom: 30px;
   }
+  .hero-img img {
+  height: 100%;
+}
 
   .hero-right {
     flex-direction: column;
@@ -742,17 +744,25 @@ body {
 
 /* Mobile portrait: ≤ 480px */
 @media screen and (max-width: 480px) {
-  /* Keep hero-left tall enough to feel like a real panel */
+@media screen and (max-width: 480px) {
   .hero-left {
     height: 72vw;
     min-height: 300px;
     max-height: 400px;
   }
 
+  /* Override the 92vh from base styles */
+  .hero-img img {
+    height: 100%;     
+    width: auto;
+    object-fit: contain;
+  }
+
   .hero-img {
-    height: 96%;
+    height: 90%;
     bottom: 20px;
   }
+}
 
   /* Hide lower two tags to reduce clutter */
   .tag-3,
@@ -816,39 +826,6 @@ body {
   }
 }
 
- /* Very small phones: ≤ 360px */
-@media screen and (max-width: 360px) {
-  .hero-left {
-    height: 75vw;
-    min-height: 270px;
-    max-height: 360px;
-  }
-
-  .hero-img {
-    height: 94%;
-  }
-
-  /* Hide progress card to reclaim space */
-  .progress-card {
-    display: none;
-  }
-
-  .tag-2 {
-    display: none;
-  }
-
-  .hero-right-content {
-    padding: 24px 16px 20px;
-  }
-
-  .hero-title {
-    font-size: clamp(1.65rem, 8vw, 2rem);
-  }
-
-  .hero-sub {
-    font-size: 0.84rem;
-  }
-}
  
 
 /* STATISTICS  class */
