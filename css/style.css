@@ -301,14 +301,14 @@ body {
 .pill-tag {
   display: inline-flex;
   align-items: center;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.2);
   gap: 6px;
   padding: 6px 14px;
   border-radius: 50px;
   z-index: 3;
   font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-mid);
+  font-weight: 600;
+  color: var(--white);
   position: absolute;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   animation: floatIn 0.6s ease both;
@@ -317,8 +317,15 @@ body {
 .pill-tag .dot {
   width: 8px;
   height: 8px;
-  background: var(--orange);
+  background: var(--white);
   border-radius: 50%;
+}
+.pill-tag:hover {
+  background: var(--white);
+  color: var(--text-dark);
+}
+.pill-tag .dot:hover {
+  background: var(--orange);
 }
 
 .tag-1 {
@@ -349,13 +356,13 @@ body {
   position: absolute;
   bottom: 40px;
   left: 50%;
-  transform: translateX(-50%); 
-   height: 92%;
+  transform: translateX(-50%);
+  height: 92%;
   z-index: 2;
   animation: slideUp 0.7s cubic-bezier(0.22, 0.68, 0, 1.2) both;
   animation-delay: 0.15s;
 }
-.hero-img img{
+.hero-img img {
   width: auto;
   height: 92vh;
   object-fit: contain;
@@ -428,7 +435,6 @@ body {
   justify-content: center;
   gap: 24px;
   background: linear-gradient(135deg, #e9d6c9 0%, #f3e7df 50%, #ffffff 100%);
-  /* background:linear-gradient(135deg, #f4e7df, #e9d6c9); */
   animation: fadeRight 0.7s ease both;
   animation-delay: 0.2s;
 }
@@ -702,8 +708,8 @@ body {
     bottom: 30px;
   }
   .hero-img img {
-  height: 100%;
-}
+    height: 100%;
+  }
 
   .hero-right {
     flex-direction: column;
@@ -743,7 +749,7 @@ body {
 }
 
 /* Mobile portrait: ≤ 480px */
-@media screen and (max-width: 480px) {
+
 @media screen and (max-width: 480px) {
   .hero-left {
     height: 72vw;
@@ -753,7 +759,7 @@ body {
 
   /* Override the 92vh from base styles */
   .hero-img img {
-    height: 100%;     
+    height: 100%;
     width: auto;
     object-fit: contain;
   }
@@ -762,16 +768,11 @@ body {
     height: 90%;
     bottom: 20px;
   }
-}
-
-  /* Hide lower two tags to reduce clutter */
-  .tag-3,
-  .tag-4 {
-    display: none;
-  }
 
   .tag-1,
-  .tag-2 {
+  .tag-2,
+  .tag-3,
+  .tag-4 {
     font-size: 0.68rem;
     padding: 4px 10px;
   }
@@ -825,8 +826,6 @@ body {
     padding: 10px 20px;
   }
 }
-
- 
 
 /* STATISTICS  class */
 .stat {
