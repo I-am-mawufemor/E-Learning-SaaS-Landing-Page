@@ -704,7 +704,7 @@ p2 .btn-ghost:hover .play-circle {
 
   .hero-img {
     height: 95%;
-    bottom: 30px;
+    bottom: 0;
   }
   .hero-img img {
     height: 100%;
